@@ -3954,29 +3954,33 @@ html:not(.js-enabled) .menu-toggle {
   top: 104px;
 }
 .fellowship-cohort-intro h1 {
-  max-width: 7ch;
-  font: 400 clamp(58px, 5.7vw, 82px)/0.96 var(--serif);
+  margin-top: clamp(42px, 6vh, 64px);
+  font: 400 clamp(48px, 4.4vw, 62px)/0.98 var(--serif);
   letter-spacing: -0.035em;
 }
+.fellowship-cohort-intro h1 > span { white-space: nowrap; }
 .fellowship-cohort-intro .closed-status { margin-top: 26px; }
 .fellowship-cohort-intro .fellowship-seal {
   width: min(100%, 280px);
-  margin: clamp(52px, 7vh, 76px) 0 12px 10px;
+  margin: 0 0 12px 10px;
   justify-self: auto;
+  background: var(--cream-tint-60);
 }
 .fellowship-summary {
   border-block: 1px solid var(--ink);
-  padding-block: clamp(28px, 4vw, 44px);
+  margin-bottom: clamp(28px, 4vw, 48px);
+  padding-block: clamp(22px, 3vw, 32px);
 }
 .fellowship-summary p {
-  max-width: 34ch;
-  font: 400 clamp(25px, 2.8vw, 38px)/1.2 var(--serif);
-  letter-spacing: -0.02em;
+  max-width: 70ch;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey-shade-30);
 }
-.fellows { margin-top: clamp(58px, 7vw, 92px); }
+.fellows { margin-top: 0; }
 .fellows > h2 {
   max-width: 12ch;
-  margin-bottom: clamp(32px, 4vw, 52px);
+  margin-bottom: clamp(28px, 3vw, 40px);
   font: 400 clamp(44px, 4.8vw, 68px)/1 var(--serif);
   letter-spacing: -0.03em;
 }
@@ -4008,13 +4012,10 @@ html:not(.js-enabled) .menu-toggle {
     gap: 72px;
   }
   .fellowship-cohort .fellowship-cohort-intro { position: static; }
-  .fellowship-cohort-intro h1 { max-width: 8ch; }
   .fellowship-cohort-intro .fellowship-seal {
     width: min(58vw, 270px);
-    margin-top: 48px;
     margin-left: min(8vw, 48px);
   }
-  .fellowship-summary p { max-width: 40ch; }
 }
 @media (max-width: 600px) {
   .fellowship-page .navigation.is-open { top: 64px; background: var(--ink); }
@@ -4023,10 +4024,9 @@ html:not(.js-enabled) .menu-toggle {
   .fellowship-page .navigation > a { border-bottom-color: var(--grey-shade-30); }
   .fellowship-cohort { padding-block: 48px 96px; }
   .fellowship-cohort .programme-layout { gap: 58px; margin-top: 0; }
-  .fellowship-cohort-intro h1 { font-size: clamp(52px, 16vw, 70px); }
+  .fellowship-cohort-intro h1 { font-size: clamp(46px, 13vw, 58px); }
   .fellowship-cohort-intro .fellowship-seal { margin-left: 16px; }
-  .fellowship-summary p { font-size: 27px; }
-  .fellows { margin-top: 54px; }
+  .fellowship-summary p { font-size: 15px; }
   .fellows > h2 { font-size: 44px; }
   .fellow-profile .fellow-affiliation { font-size: 10px; }
   .fellow-profile > p:last-child { font-size: 14px; }
