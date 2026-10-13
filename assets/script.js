@@ -30,7 +30,6 @@ if (menuButton && navigation) {
     }
   });
 }
-
 // Research filters operate on the four articles already present in the HTML.
 const search = document.querySelector('input[type="search"]');
 if (search) {
@@ -381,41 +380,5 @@ if (document.documentElement.classList.contains("home-page")) {
     event.preventDefault();
     animationUntil = now + 700;
     scrollTo({ top: positions[index + direction], behavior: "smooth" });
-  }, { passive: false });
-}
-
-// Fellowship has one introductory transition; programme details scroll freely.
-if (document.documentElement.classList.contains("fellowship-page")) {
-  const desktop = matchMedia("(min-width: 1000px) and (min-height: 650px)");
-  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-  const hero = document.querySelector(".fellowship-hero");
-  const details = document.querySelector(".fellowship-details");
-  let animationUntil = 0;
-  let lastWheel = 0;
-  const updateHeader = () => document.documentElement.classList.toggle("header-compact", desktop.matches && scrollY > 8);
-  addEventListener("scroll", updateHeader, { passive: true });
-  addEventListener("resize", updateHeader);
-  updateHeader();
-  addEventListener("wheel", event => {
-    if (!desktop.matches || reducedMotion.matches || event.ctrlKey ||
-        Math.abs(event.deltaY) <= Math.abs(event.deltaX) ||
-        event.target.closest("dialog, input, textarea, select") ||
-        document.querySelector("dialog[open]")) return;
-    const now = performance.now();
-    const continuingGesture = now - lastWheel < 180;
-    lastWheel = now;
-    if (animationUntil && (now < animationUntil || continuingGesture)) {
-      event.preventDefault();
-      return;
-    }
-    animationUntil = 0;
-    if (hero.getBoundingClientRect().height > innerHeight + 2) return;
-    const detailsTop = details.offsetTop - 64;
-    const downFromHero = event.deltaY > 0 && scrollY < detailsTop - 3;
-    const upToHero = event.deltaY < 0 && scrollY > 0 && scrollY <= detailsTop + 3;
-    if (!downFromHero && !upToHero) return;
-    event.preventDefault();
-    animationUntil = now + 700;
-    scrollTo({ top: downFromHero ? detailsTop : 0, behavior: "smooth" });
   }, { passive: false });
 }
